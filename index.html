@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chai Aur Tailwind</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chai Tailwind</title>
 </head>
-<body>
-    <div class="chai-border-black-2 chai-bg-orange">Cohort 2026 - Chai Aur Tailwind</div>
-    <script src="main.js"></script>
+
+<body class="chai-font-14 chai-bg-black chai-text-white">
+
+  <!-- CONTAINER -->
+  <div class="chai-w-900 chai-mx-auto chai-p-20">
+
+    <!-- HERO -->
+    <div class="chai-bg-black chai-p-20 chai-rounded-10 chai-shadow-md chai-border-2">
+      <div class="chai-font-26 chai-fw-bold chai-text-orange">
+        ☕ Chai Tailwind
+      </div>
+      <div class="chai-mt-10 chai-text-gray">
+        Build UI with simple chai-* utility classes
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="chai-p-20 chai-m-10 chai-bg-dark chai-rounded-10 chai-shadow-sm">
+      This project demonstrates a lightweight utility-first CSS engine built using JavaScript.  
+      It dynamically parses classes like <b>chai-p-10</b> and <b>chai-bg-orange</b>.
+    </div>
+
+    <!-- CARD SECTION -->
+    <div class="chai-flex chai-gap-10 chai-m-20">
+
+      <div class="chai-bg-dark chai-p-15 chai-rounded-10 chai-shadow-sm chai-w-250">
+        <div class="chai-font-18 chai-fw-bold chai-text-orange">Utility Parsing</div>
+        <div class="chai-mt-10 chai-text-gray">
+          Classes are parsed using prefix-based rules.
+        </div>
+      </div>
+
+      <div class="chai-bg-dark chai-p-15 chai-rounded-10 chai-shadow-sm chai-w-250">
+        <div class="chai-font-18 chai-fw-bold chai-text-orange">Dynamic Styling</div>
+        <div class="chai-mt-10 chai-text-gray">
+          Styles are applied at runtime using JavaScript.
+        </div>
+      </div>
+
+      <div class="chai-bg-dark chai-p-15 chai-rounded-10 chai-shadow-sm chai-w-250">
+        <div class="chai-font-18 chai-fw-bold chai-text-orange">Reusable Design</div>
+        <div class="chai-mt-10 chai-text-gray">
+          Combine utilities for flexible UI.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="chai-text-center chai-m-20">
+      <button class="chai-bg-orange chai-text-black chai-p-12 chai-rounded-5 chai-fw-bold chai-shadow-sm">
+        Explore Utilities
+      </button>
+    </div>
+
+    <!-- FEATURE BOX -->
+    <div class="chai-bg-dark chai-p-20 chai-rounded-10 chai-shadow-md chai-m-20 chai-border-2">
+      <div class="chai-font-18 chai-fw-bold chai-text-center chai-text-orange">
+        Multiple Utilities Combined
+      </div>
+      <div class="chai-text-center chai-mt-10 chai-text-gray">
+        Padding, Margin, Colors, Layout, Typography
+      </div>
+    </div>
+
+    <!-- BEFORE VS AFTER -->
+    <div class="chai-m-20">
+      <div class="chai-font-18 chai-fw-bold">Before vs After</div>
+
+      <div class="chai-mt-10 chai-text-gray">
+        Plain div without styling
+      </div>
+
+      <div class="chai-bg-orange chai-text-black chai-p-10 chai-rounded-10 chai-mt-10 chai-shadow-sm">
+        Styled using chai-* classes
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="chai-bg-black chai-text-gray chai-text-center chai-p-10 chai-rounded-5 chai-mt-20">
+      Built with ☕ + JavaScript Parser Engine
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
