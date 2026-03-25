@@ -52,6 +52,9 @@ body {
     border-radius: 6px;
     font-weight: 600;
 }
+.btn-playground:hover  {
+    background-color: #1e1d1d;
+}
 
 /* HERO SECTION */
 .hero {
@@ -116,6 +119,9 @@ body {
     border-radius: 8px;
     font-weight: 600;
     transition: 0.3s;
+}
+.btn-secondary:hover{
+    background-color: #1e1d1d;
 }
 
 .hero-glow {

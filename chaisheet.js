@@ -3,64 +3,96 @@ export class ChaiEngine {
         this.staticUtils = {
             // Layout & Display
             "chai-flex": { display: "flex" },
+            "chai-grid": { display: "grid" },
             "chai-block": { display: "block" },
+            "chai-inline": { display: "inline" },
             "chai-inline-block": { display: "inline-block" },
             "chai-hidden": { display: "none" },
             "chai-relative": { position: "relative" },
             "chai-absolute": { position: "absolute" },
             "chai-fixed": { position: "fixed" },
+            "chai-sticky": { position: "sticky", top: "0" },
 
-            // Flexbox Alignment
+            // Flex & Grid Alignment
             "chai-items-center": { alignItems: "center" },
             "chai-items-start": { alignItems: "flex-start" },
             "chai-items-end": { alignItems: "flex-end" },
             "chai-justify-center": { justifyContent: "center" },
             "chai-justify-between": { justifyContent: "space-between" },
+            "chai-justify-around": { justifyContent: "space-around" },
             "chai-flex-col": { flexDirection: "column" },
             "chai-flex-row": { flexDirection: "row" },
+            "chai-flex-wrap": { flexWrap: "wrap" },
+            "chai-grow": { flexGrow: "1" },
+            "chai-shrink-0": { flexShrink: "0" },
 
-            // Typography
+            // Typography & Decoration
             "chai-text-center": { textAlign: "center" },
+            "chai-text-left": { textAlign: "left" },
+            "chai-text-right": { textAlign: "right" },
             "chai-fw-bold": { fontWeight: "bold" },
+            "chai-italic": { fontStyle: "italic" },
             "chai-uppercase": { textTransform: "uppercase" },
+            "chai-underline": { textDecoration: "underline" },
+            "chai-antialiased": { webkitFontSmoothing: "antialiased" },
 
-            // Expanded Palette
+            // Visuals & Behavior
+            "chai-overflow-hidden": { overflow: "hidden" },
+            "chai-overflow-auto": { overflow: "auto" },
+            "chai-object-cover": { objectFit: "cover" },
+            "chai-object-contain": { objectFit: "contain" },
+            "chai-cursor-pointer": { cursor: "pointer" },
+            "chai-select-none": { userSelect: "none" },
+
+            // Colors (Standard Palette)
             "chai-text-red": { color: "#ef4444" },
             "chai-text-blue": { color: "#3b82f6" },
             "chai-text-green": { color: "#22c55e" },
-            "chai-text-orange": { color: "#f97316" }, // Original orange 
-            "chai-text-white": { color: "white" },
-            "chai-text-gray": { color: "#94a3b8" },
-            "chai-bg-dark": { backgroundColor: "#0f0f0f" }, // Matches style.css surface
-
-            // Utilities
-            "chai-mx-auto": { margin: "auto" },
-            "chai-cursor-pointer": { cursor: "pointer" }
+            "chai-text-white": { color: "#ffffff" },
+            "chai-text-black": { color: "#000000" },
+            "chai-text-gray": { color: "#94a3b8" }
         };
 
         this.rules = [
-            // Spacing & Sizing
+            // 1. Spacing (Padding)
+            { prefix: "chai-px-", property: "paddingInline", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-py-", property: "paddingBlock", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-pt-", property: "paddingTop", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-pb-", property: "paddingBottom", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-pl-", property: "paddingLeft", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-pr-", property: "paddingRight", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
             { prefix: "chai-p-", property: "padding", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
-            { prefix: "chai-m-", property: "margin", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+
+            // 2. Spacing (Margin)
+            { prefix: "chai-mx-", property: "marginInline", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-my-", property: "marginBlock", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
             { prefix: "chai-mt-", property: "marginTop", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
             { prefix: "chai-mb-", property: "marginBottom", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-ml-", property: "marginLeft", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-mr-", property: "marginRight", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-m-", property: "margin", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+
+            // 3. Sizing & Layout
             { prefix: "chai-w-", property: "width", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
             { prefix: "chai-h-", property: "height", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-max-w-", property: "maxWidth", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-min-w-", property: "minWidth", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-gap-", property: "gap", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-cols-", property: "gridTemplateColumns", validate: (v) => !isNaN(v), transform: (v) => `repeat(${v}, minmax(0, 1fr))` },
 
-            // Typography & Visuals
+            // 4. Typography
             { prefix: "chai-font-", property: "fontSize", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-leading-", property: "lineHeight", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+            { prefix: "chai-tracking-", property: "letterSpacing", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
+
+            // 5. Borders & Styling
+            { prefix: "chai-rounded-", property: "borderRadius", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
             { prefix: "chai-opacity-", property: "opacity", validate: (v) => !isNaN(v), transform: (v) => v / 100 },
             { prefix: "chai-z-", property: "zIndex", validate: (v) => !isNaN(v), transform: (v) => v },
+            { prefix: "chai-border-", property: "border", validate: (v) => !isNaN(v), transform: (v) => `${v}px solid #e2e8f0` },
 
-            // Borders & Shapes
-            { prefix: "chai-border-", property: "border", validate: (v) => !isNaN(v), transform: (v) => `${v}px solid black` },
-            { prefix: "chai-rounded-", property: "borderRadius", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
-
-            // Advanced Positioning (New)
-            { prefix: "chai-top-", property: "top", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
-            { prefix: "chai-left-", property: "left", validate: (v) => !isNaN(v), transform: (v) => v + "px" },
-
-            // Colors
+            // 6. Colors (Dynamic Hex or Names)
+            { prefix: "chai-text-", property: "color", validate: () => true, transform: (v) => v },
             { prefix: "chai-bg-", property: "backgroundColor", validate: () => true, transform: (v) => v }
         ];
     }
