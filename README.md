@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Chai Tailwind
 
 ## Video explaining the project:
